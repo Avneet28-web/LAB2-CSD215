@@ -80,9 +80,9 @@ let calculateBudget (activity: Activity) : float =
         | Turkish -> 65.0
     | LongDrive (kilometers, fuelCostPerKm) -> float kilometers * fuelCostPerKm
 
-let budget1 = calculateBudget (Movie DBOXWithSnacks) // 25.0
-let budget2 = calculateBudget (Restaurant Turkish) // 65.0
-let budget3 = calculateBudget (LongDrive (100, 0.5)) // 50.0
+let budget1 = calculateBudget (Movie DBOXWithSnacks) 
+let budget2 = calculateBudget (Restaurant Turkish) 
+let budget3 = calculateBudget (LongDrive (100, 0.5)) 
 
 printfn "\nBudget Examples:"
 printfn "Movie DBOXWithSnacks: %.2f CAD" budget1
