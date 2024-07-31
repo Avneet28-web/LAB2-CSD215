@@ -1,19 +1,9 @@
 ﻿// For more information see https://aka.ms/fsharp-console-apps
-type Coach = {
-    Name: string
-    FormerPlayer: bool
-}
+type Coach = {Name: string;FormerPlayer: bool}
 
-type Stats = {
-    Wins: int
-    Losses: int
-}
+type Stats = {Wins: int;Losses: int}
 
-type Team = {
-    Name: string
-    Coach: Coach
-    Stats: Stats
-}
+type Team = {Name: string;Coach: Coach;Stats: Stats}
 
 let coach1 = { Name = "Steve Kerr"; FormerPlayer = true }
 let coach2 = { Name = "Mike Budenholzer"; FormerPlayer = false }
@@ -35,18 +25,14 @@ let team5 = { Name = "San Antonio Spurs"; Coach = coach5; Stats = stats5 }
 
 let teams = [ team1; team2; team3; team4; team5 ]
 
-let successfulTeams = 
-    teams
-    |> List.filter (fun team -> team.Stats.Wins > team.Stats.Losses)
+let successfulTeams = teams|> List.filter (fun team -> team.Stats.Wins > team.Stats.Losses)
 
 let successPercentage team =
     let totalGames = float (team.Stats.Wins + team.Stats.Losses)
     let percentage = (float team.Stats.Wins / totalGames) * 100.0
     percentage
 
-let successPercentages = 
-    teams
-    |> List.map (fun team -> (team.Name, successPercentage team))
+let successPercentages = teams|> List.map (fun team -> (team.Name, successPercentage team))
 
 printfn "Successful Teams:"
 successfulTeams |> List.iter (fun team -> 
